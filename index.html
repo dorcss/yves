@@ -1,0 +1,826 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>For Yves, My Forever ♡</title>
+
+    <style>
+        :root {
+            --primary: #8f4c62;
+            --secondary: #f1d9dc;
+            --background: #fff8f5;
+            --text: #452c33;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #8f4c62, #482d45);
+            color: #fff8f5;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "✦";
+            position: absolute;
+            color: #f6d8c8;
+            opacity: 0.3;
+            font-size: 150px;
+        }
+
+        .hero::before {
+            top: 15px;
+            left: 20px;
+        }
+
+        .hero::after {
+            bottom: 10px;
+            right: 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 12px;
+            color: #f4cbd5;
+            margin-bottom: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: clamp(48px, 10vw, 100px);
+            line-height: 1.1;
+            margin: 15px 0 25px;
+        }
+
+        .hero p {
+            font-family: Georgia, serif;
+            font-size: 21px;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #fff8f5;
+            color: #713c50;
+            padding: 13px 27px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: #f7e5e6;
+        }
+
+        /* YES GRAPHIC */
+
+        .yes-graphic {
+            width: min(340px, 85%);
+            margin: 0 auto 28px;
+            padding: 28px 15px;
+            border: 1px solid rgba(255, 248, 245, 0.65);
+            border-radius: 24px;
+            background:
+                radial-gradient(circle at top, #a96a80, transparent 65%),
+                linear-gradient(145deg, #482d45, #8f4c62);
+            box-shadow: 0 0 35px rgba(246, 216, 200, 0.2);
+            animation: yesGlow 3s ease-in-out infinite;
+        }
+
+        .yes-graphic .yes-title {
+            font-family: Georgia, serif;
+            font-size: clamp(35px, 8vw, 55px);
+            line-height: 1.2;
+            color: #fff8f5;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .yes-graphic .yes-subtitle {
+            color: #f6d8c8;
+            font-size: 13px;
+            letter-spacing: 5px;
+            margin: 12px 0 0;
+        }
+
+        @keyframes yesGlow {
+            50% {
+                box-shadow: 0 0 45px rgba(246, 216, 200, 0.38);
+            }
+        }
+
+        /* MUSIC BUTTON */
+
+        .music-button {
+            border: 1px solid #f6d8c8;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 15px;
+            margin: 12px 8px;
+        }
+
+        .music-status {
+            font-size: 13px;
+            color: #f6d8c8;
+            margin-top: 5px;
+        }
+
+        .section {
+            padding: 75px 22px;
+        }
+
+        .container {
+            width: min(1000px, 100%);
+            margin: auto;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        h2 {
+            font-size: clamp(32px, 5vw, 55px);
+            line-height: 1.2;
+            margin: 0 0 20px;
+        }
+
+        .lead {
+            max-width: 700px;
+            margin: 0 auto 35px;
+            color: #765b63;
+        }
+
+        /* PHOTO GALLERY */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin-top: 35px;
+        }
+
+        .photo {
+            overflow: hidden;
+            border-radius: 20px;
+            background: #f7e8e7;
+            border: 1px solid #ead3d8;
+            box-shadow: 0 8px 25px rgba(80, 40, 55, 0.08);
+        }
+
+        .photo img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .photo:hover img {
+            transform: scale(1.04);
+        }
+
+        .photo p {
+            padding: 15px;
+            margin: 0;
+            font-family: Georgia, serif;
+        }
+
+        /* LETTER */
+
+        .message {
+            background: #f1d9dc;
+            color: #482832;
+            border-radius: 28px;
+            padding: clamp(25px, 6vw, 60px);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(80, 40, 55, 0.06);
+        }
+
+        .message p {
+            max-width: 760px;
+            margin: 0 auto 22px;
+            font-size: 16px;
+        }
+
+        .signature {
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 22px;
+            margin-top: 30px;
+        }
+
+        /* PROMISE CARDS */
+
+        .wishes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .wish {
+            padding: 25px 20px;
+            border: 1px solid #ead3d8;
+            border-radius: 20px;
+            background: white;
+        }
+
+        .wish span {
+            display: block;
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .wish h3 {
+            font-size: 24px;
+            margin: 5px 0 10px;
+        }
+
+        .wish p {
+            margin: 0;
+            color: #765b63;
+        }
+
+        /* FINAL BLESSING */
+
+        .blessing {
+            background: linear-gradient(135deg, #482d45, #8f4c62);
+            color: #fff8f5;
+            text-align: center;
+            padding: 85px 22px;
+        }
+
+        .blessing p {
+            max-width: 700px;
+            margin: 15px auto;
+        }
+
+        .heart {
+            font-size: 45px;
+            margin: 20px 0;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 28px 15px;
+            font-size: 14px;
+            color: #8b7078;
+        }
+
+        @media (max-width: 700px) {
+
+            .gallery,
+            .wishes {
+                grid-template-columns: 1fr;
+                max-width: 430px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .photo img {
+                aspect-ratio: 4 / 3;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- OUR SONG -->
+    <audio id="love-song" autoplay loop preload="auto">
+        <source src="a.mp4" type="audio/mp4">
+        Your browser does not support audio playback.
+    </audio>
+
+    <!-- WELCOME -->
+    <header class="hero" id="top">
+        <div class="hero-content">
+
+            <!-- ROMANTIC YES GRAPHIC -->
+            <div class="yes-graphic">
+                <p class="yes-title">YES, YVES ♡</p>
+                <p class="yes-subtitle">FOREVER STARTS HERE</p>
+            </div>
+
+            <div class="eyebrow">
+                One question · One answer · Our lifetime
+            </div>
+
+            <h1>Yes, Yves<br>My Forever ♡</h1>
+
+            <p>
+                Yves, if life is asking me who I want beside me
+                through all the years ahead, my answer has your name
+                written all over it. Today, tomorrow, and for as
+                long as I am blessed to live, I choose you.
+            </p>
+
+            <a class="button" href="#the-moment">
+                Read The Moment My Heart Answered ♡
+            </a>
+
+            <br>
+
+            <button class="button music-button" id="music-button" type="button" onclick="toggleLoveSong()">
+                ♫ Play Our Song
+            </button>
+
+            <p class="music-status" id="music-status" aria-live="polite">
+                A little music for our special moment ♡
+            </p>
+
+        </div>
+    </header>
+
+    <!-- OUR MEMORIES -->
+    <section class="section center">
+        <div class="container">
+
+            <div class="eyebrow">Little pieces of our story</div>
+
+            <h2>The Man My Heart Calls Home</h2>
+
+            <p class="lead">
+                Yves, these pictures may hold only a few moments,
+                but what I feel for you could never fit inside a frame.
+                You have become part of the future I imagine and the
+                happiness I hope to keep building.
+            </p>
+
+            <div class="gallery">
+
+                <article class="photo">
+                    <img src="a.jpeg" alt="A special memory of Germaine and Yves">
+                    <p>The beginning of something precious ♡</p>
+                </article>
+
+                <article class="photo">
+                    <img src="b.jpeg" alt="A moment from our love story">
+                    <p>A memory my heart keeps close ♡</p>
+                </article>
+
+                <article class="photo">
+                    <img src="c.jpeg" alt="A picture for our future">
+                    <p>A little glimpse of my forever ♡</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- THE MOMENT MY HEART ANSWERED -->
+    <section class="section" id="the-moment">
+        <div class="container">
+
+            <div class="message">
+
+                <div class="eyebrow">
+                    One question · One beautiful yes
+                </div>
+
+                <h2>The Moment My Heart Answered</h2>
+
+                <p>
+                    I wanted to make you something small and personal,
+                    so you could come back to this moment and remember
+                    how happy I was to say yes to you.
+                </p>
+
+                <p>
+                    <strong>
+                        <em>
+                            "It was you then, Yves. It is you now.
+                            And I am so happy I get to choose you."
+                        </em>
+                    </strong>
+                </p>
+
+                <div class="heart">♡</div>
+
+                <h2>My Yves,</h2>
+
+                <p>
+                    I keep smiling when I think about your question
+                    and the fact that I get to call you my future.
+                    I wish I could bottle up exactly how I felt in
+                    that moment and give it to you on the days when
+                    you need a reminder of how deeply you are loved.
+                </p>
+
+                <p>
+                    I love that this is our story—not a perfect one,
+                    not one we have to prove to anyone, just ours.
+                    I want to laugh with you over silly things, talk
+                    through the hard things, celebrate the wins big
+                    and small, and make a home in which we can both
+                    breathe easy and be ourselves.
+                </p>
+
+                <p>
+                    I know love is more than one beautiful question
+                    and one happy answer. It is the choosing that
+                    comes after: being gentle when we are tired,
+                    listening properly, apologising when we get it
+                    wrong, and remembering that we are on the same
+                    team. That is the kind of love I want to keep
+                    building with you.
+                </p>
+
+                <p>
+                    Thank you for choosing me and asking me to take
+                    this step with you. My answer was yes because
+                    my heart is happy with you. I am excited for our
+                    next chapter, and for all the little moments
+                    that will make it ours.
+                </p>
+
+                <div class="signature">
+                    All my love,<br>
+                    GM ♡
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MY LETTER TO YVES -->
+    <section class="section" id="my-answer">
+        <div class="container">
+
+            <div class="message">
+
+                <div class="eyebrow">
+                    The answer I carry inside me
+                </div>
+
+                <h2>My Dearest Yves,</h2>
+
+                <p>
+                    There is something beautiful about finding a person
+                    whose presence makes the future feel less frightening.
+                    For me, that person is you. When I think about the years
+                    waiting ahead, I do not simply picture places I want to
+                    visit or dreams I want to achieve. I picture your hand
+                    in mine, your voice in our home, and your presence
+                    beside me as we discover what life has prepared for us.
+                </p>
+
+                <p>
+                    So, my love, if the question is whether I am ready to
+                    walk into tomorrow with you, whether I want to share
+                    the responsibilities, the unexpected turns, the quiet
+                    evenings, the celebrations, and the years that will
+                    change us both, then my answer is yes. Not because
+                    I know every detail of the road, but because you are
+                    the person with whom I want to discover it.
+                </p>
+
+                <p>
+                    Yves, I am not offering you a promise that I will
+                    always know the right words or that I will never
+                    have a difficult day. I am offering something more
+                    honest: a woman willing to keep learning how to love
+                    you well. I want to understand you beyond what you
+                    say aloud, respect the person you are becoming, and
+                    give our relationship the care it deserves.
+                </p>
+
+                <p>
+                    I want us to create a home where neither of us has
+                    to pretend to be strong every minute. A place where
+                    we can speak openly, laugh until ordinary worries
+                    become smaller, admit when we are wrong, and find
+                    our way back to one another after disagreements.
+                    I want our love to be something we practise, not
+                    merely something we say.
+                </p>
+
+                <p>
+                    I choose the real you, Yves. The man with his own
+                    thoughts, ambitions, imperfections, and dreams.
+                    I want to celebrate your victories without making
+                    them about me, encourage you when progress is slow,
+                    and remind you of your worth when a difficult season
+                    makes you question how far you have come.
+                </p>
+
+                <p>
+                    And I hope you will allow me to grow, too. I want
+                    to remain Germaine, a woman with dreams of her own,
+                    while building something meaningful with you. May
+                    we become partners who make room for each other's
+                    ambitions and find joy in seeing one another succeed.
+                    Let our togetherness make our individual lives richer.
+                </p>
+
+                <p>
+                    When we are young, we may measure love by how quickly
+                    our hearts beat. As the years pass, I hope we will
+                    also recognise it in the practical little things:
+                    remembering what matters to each other, checking in
+                    after a tiring day, sharing responsibilities, making
+                    time when life becomes busy, and being careful with
+                    each other's trust.
+                </p>
+
+                <p>
+                    I want to meet the older versions of us. I want to
+                    hear the stories we will tell about our early days,
+                    smile at the things we once worried about, and look
+                    at you with the quiet satisfaction of a woman who
+                    helped build a life with the man she truly wanted.
+                    I want our history to carry evidence of kindness,
+                    courage, patience, and thousands of decisions to
+                    keep caring for one another.
+                </p>
+
+                <p>
+                    I pray that God gives us wisdom when choices are
+                    difficult, humility when pride tries to speak first,
+                    and gratitude when blessings arrive in unexpected
+                    forms. May we never become so occupied with chasing
+                    a better future that we forget to appreciate the
+                    beautiful things already growing between us.
+                </p>
+
+                <p>
+                    Yves, I cannot see every chapter waiting for us.
+                    But I know the name I want beside mine as those
+                    chapters unfold. I want the ordinary mornings,
+                    the plans that work, the plans that change, the
+                    celebrations shared with people we love, and the
+                    peaceful moments when simply being together is enough.
+                </p>
+
+                <p>
+                    So here is my answer, written without hesitation:
+                    yes to you, yes to building with you, yes to learning
+                    beside you, and yes to a future in which we keep
+                    treating our love as something precious. I am giving
+                    you my sincere intention to stand beside you, nurture
+                    our bond, and do my part in the life we create together.
+                </p>
+
+                <p>
+                    If someone asks me what I see when I look toward
+                    forever, I will not need a complicated explanation.
+                    I see a life we have built with care. I see two people
+                    who have changed over time but have not stopped
+                    making room for each other. And somewhere in that
+                    picture, I see you smiling at me, still my Yves.
+                </p>
+
+                <p>
+                    <strong>
+                        My answer is YES, Yves. I choose you as my
+                        companion, my partner, and the man with whom
+                        I want to write the unwritten pages of my life.
+                        Let us begin our forever with honest hearts,
+                        steady hands, and love that grows through action.
+                    </strong>
+                </p>
+
+                <div class="signature">
+                    With a heart that has chosen you,<br>
+                    Germaine ♡
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY I CHOOSE YOU -->
+    <section class="section center">
+        <div class="container">
+
+            <div class="eyebrow">
+                Three promises I want us to live
+            </div>
+
+            <h2>What My Yes Means to Me</h2>
+
+            <p class="lead">
+                My answer is more than a beautiful word today.
+                These are the things I hope to bring into the life
+                we build together, one decision at a time.
+            </p>
+
+            <div class="wishes">
+
+                <article class="wish">
+                    <span>♡</span>
+                    <h3>I Will Keep Learning You</h3>
+                    <p>
+                        I want to understand the person behind your
+                        words, respect your feelings, and never assume
+                        that loving you means I already know everything
+                        about you.
+                    </p>
+                </article>
+
+                <article class="wish">
+                    <span>♡</span>
+                    <h3>I Will Build Beside You</h3>
+                    <p>
+                        I want us to share the work, the decisions,
+                        the victories, and the hard conversations.
+                        Our future should carry the effort of both
+                        our hands.
+                    </p>
+                </article>
+
+                <article class="wish">
+                    <span>♡</span>
+                    <h3>I Will Protect Our Bond</h3>
+                    <p>
+                        I want to be careful with your trust, honest
+                        with my feelings, generous with forgiveness,
+                        and intentional about making time for us.
+                    </p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR FOREVER -->
+    <section class="blessing">
+        <div class="container">
+
+            <div class="eyebrow">
+                To the life waiting for us
+            </div>
+
+            <h2>Yves, Let Us Write Our Forever</h2>
+
+            <p>
+                May our future contain more than beautiful photographs.
+                May it hold meaningful conversations, shared victories,
+                courage during uncertain seasons, a peaceful home,
+                and the freedom to become better people together.
+            </p>
+
+            <div class="heart">♡</div>
+
+            <h2>My Answer Is Yes!</h2>
+
+            <p>
+                Yes, Yves, to the plans we have not made yet.
+                Yes, to discovering new sides of each other.
+                Yes, to making decisions as partners and finding
+                our way through life with mutual respect.
+            </p>
+
+            <p>
+                Yes to growing older with stories only we understand.
+                Yes to the small traditions we will create, the lessons
+                that will shape us, and the home we will fill with our
+                own kind of happiness.
+            </p>
+
+            <p>
+                <strong>
+                    If forever is made from all the days we are given,
+                    then my wish is to spend those days building a life
+                    with you, Yves. My name is Germaine, and this is
+                    my answer to the future: I choose you.
+                </strong>
+            </p>
+
+            <p>
+                May God guide our steps, strengthen our understanding,
+                and bless the love we choose to nurture. Whatever the
+                years bring, may we keep meeting each other with
+                sincerity, respect, and willing hearts.
+            </p>
+
+            <div class="heart">♥</div>
+
+            <h2>Yves &amp; Germaine</h2>
+
+            <p>
+                Two names, one shared dream, and a future
+                we will build together. ♡
+            </p>
+
+            <a class="button" href="#top">
+                Read My Yes Again ↑
+            </a>
+
+        </div>
+    </section>
+
+    <footer>
+        Written with love by Germaine, for Yves ·
+        My answer today, my intention for tomorrow ♡
+    </footer>
+
+    <!-- MUSIC CONTROLS -->
+    <script>
+        const loveSong = document.getElementById("love-song");
+        const musicButton = document.getElementById("music-button");
+        const musicStatus = document.getElementById("music-status");
+
+        async function toggleLoveSong() {
+            try {
+                if (loveSong.paused) {
+                    await loveSong.play();
+                    musicButton.textContent = "♫ Pause Our Song";
+                    musicStatus.textContent =
+                        "Playing our song, with all my love ♡";
+                } else {
+                    loveSong.pause();
+                    musicButton.textContent = "♫ Play Our Song";
+                    musicStatus.textContent =
+                        "Our song is waiting for you ♡";
+                }
+            } catch (error) {
+                musicStatus.textContent =
+                    "The song could not play. Check that a.mp4 is in the website folder and try again.";
+            }
+        }
+
+        loveSong.addEventListener("play", () => {
+            musicButton.textContent = "♫ Pause Our Song";
+            musicStatus.textContent = "Playing our song ♡";
+        });
+
+        loveSong.addEventListener("pause", () => {
+            musicButton.textContent = "♫ Play Our Song";
+        });
+
+        // Try autoplay; browsers may require a user tap first.
+        loveSong.play().catch(() => {
+            musicStatus.textContent =
+                "Tap Play Our Song to hear our music ♡";
+        });
+    </script>
+
+</body>
+
+</html>
+```
